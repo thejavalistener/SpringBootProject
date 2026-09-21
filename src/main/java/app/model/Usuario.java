@@ -39,5 +39,12 @@ public class Usuario {
     public void setEmail(String email) { this.email = email; }
     public String getNumeroSocio() { return numeroSocio; }
     public void setNumeroSocio(String numeroSocio) { this.numeroSocio = numeroSocio; }
+
+    @Override
+    public String toString() 
+    {
+        return nombre;
+    }
+
 }
 

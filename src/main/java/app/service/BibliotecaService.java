@@ -3,6 +3,7 @@ package app.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,35 +15,36 @@ import app.repository.PrestamoRepository;
 import app.repository.UsuarioRepository;
 
 @Service
-public class BibliotecaService {
+public class BibliotecaService
+{
+    @Autowired 
+    private LibroRepository libroRepository;
 
-    private final LibroRepository libroRepository;
-    private final UsuarioRepository usuarioRepository;
-    private final PrestamoRepository prestamoRepository;
+    @Autowired 
+    private UsuarioRepository usuarioRepository;
 
-    public BibliotecaService(LibroRepository libroRepository, UsuarioRepository usuarioRepository,
-            PrestamoRepository prestamoRepository) {
-        this.libroRepository = libroRepository;
-        this.usuarioRepository = usuarioRepository;
-        this.prestamoRepository = prestamoRepository;
-    }
+    @Autowired 
+    private PrestamoRepository prestamoRepository;
 
-    public Libro registrarLibro(Libro libro) {
+    public Libro registrarLibro(Libro libro)
+    {
         return libroRepository.save(libro);
     }
 
-    public Usuario registrarUsuario(Usuario usuario) {
+    public Usuario registrarUsuario(Usuario usuario)
+    {
         return usuarioRepository.save(usuario);
     }
 
     @Transactional
-    public Prestamo prestarLibro(Long libroId, Long usuarioId) {
-        Libro libro = libroRepository.findById(libroId)
-                .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
-        Usuario usuario = usuarioRepository.findById(usuarioId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    public Prestamo prestarLibro(Long libroId, Long usuarioId)
+    {
+        Libro libro = libroRepository.findById(libroId).orElseThrow(() -> new RuntimeException("Libro no encontrado"));
+        Usuario usuario = usuarioRepository.findById(usuarioId).orElseThrow(() -> new RuntimeException(
+                "Usuario no encontrado"));
 
-        if (libro.getCopiasDisponibles() <= 0) {
+        if (libro.getCopiasDisponibles() <= 0)
+        {
             throw new RuntimeException("No hay copias disponibles de este libro");
         }
 
@@ -53,11 +55,13 @@ public class BibliotecaService {
     }
 
     @Transactional
-    public Prestamo devolverLibro(Long prestamoId) {
-        Prestamo prestamo = prestamoRepository.findById(prestamoId)
-                .orElseThrow(() -> new RuntimeException("Préstamo no encontrado"));
+    public Prestamo devolverLibro(Long prestamoId)
+    {
+        Prestamo prestamo = prestamoRepository.findById(prestamoId).orElseThrow(() -> new RuntimeException(
+                "Préstamo no encontrado"));
 
-        if (Boolean.TRUE.equals(prestamo.getDevuelto())) {
+        if (Boolean.TRUE.equals(prestamo.getDevuelto()))
+        {
             throw new RuntimeException("Este préstamo ya fue devuelto");
         }
 
@@ -71,8 +75,8 @@ public class BibliotecaService {
         return prestamoRepository.save(prestamo);
     }
 
-    public List<Libro> obtenerLibros() {
+    public List<Libro> obtenerLibros()
+    {
         return libroRepository.findAll();
     }
 }
-
