@@ -1,37 +1,44 @@
-HELP.md
-.gradle
+# --- Gradle ---
+.gradle/
+.gradle-home/
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# --- Salida de build / empaquetado ---
+out/
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+!gradle/wrapper/gradle-wrapper.jar
+# El jar del starter SÍ se versiona: es el entregable. La tarea 'dist' de
+# hql-console-starter/build.gradle lo copia acá con nombre fijo después de compilar. No puede
+# vivir en build/ porque una negación no rescata archivos de una carpeta excluida.
+!dist/hql-console-starter.jar
 
-### IntelliJ IDEA ###
-.idea
-*.iws
+# --- Logs ---
+*.log
+logs/
+
+# --- IDEs ---
+.idea/
 *.iml
 *.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
+*.iws
 .vscode/
+.settings/
+.classpath
+.project
+nbproject/
+
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Entorno / secretos ---
+.env
+*.env
+!*.env.example
