@@ -58,17 +58,8 @@ Las asociaciones sólo están declaradas hacia el lado `@ManyToOne`; por ejemplo
 
 ### Hallazgos que quedan como mejora, no como bloqueo
 
-1. El dinero está modelado como `Double`; antes de un sistema real conviene
-   migrarlo a `BigDecimal`.
-2. Falta validar unicidad de `Usuario.username`, cantidades positivas, stock no
-   negativo y que `fechaFin >= fechaInicio`.
-3. En los datos de ejemplo, la vigencia `$vig3` tiene fecha de inicio posterior
+1. En los datos de ejemplo, la vigencia `$vig3` tiene fecha de inicio posterior
    a su fecha de fin. Debe corregirse para que no distorsione pruebas.
-4. Hay textos con caracteres mal codificados en `script.hql`; guardar archivos
-   como UTF-8 y revisar los nombres antes de la entrega.
-5. Para el MVP no es necesario remapear las relaciones inversas. Más adelante,
-   `@OneToMany(mappedBy = "orden")` haría más expresiva la navegación en Java,
-   pero no es requisito para HQL.
 
 ## 3. Alcance funcional: casos de uso
 
