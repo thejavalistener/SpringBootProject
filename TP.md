@@ -42,14 +42,13 @@ Las entidades se encuentran en `app.mappings` y conforman estos agregados:
 
 Las asociaciones sólo están declaradas hacia el lado `@ManyToOne`; por ejemplo,
 `Orden` no tiene una colección de detalles y `Cliente` no tiene una colección de
-órdenes. No es un error: simplemente condiciona el HQL. Para navegar ventas se
-parte de `DetalleOrden` u `Orden`, no de `Cliente.ordenes`.
+órdenes.
 
 ### Convenciones importantes
 
 - En HQL se usan los nombres de las **entidades y atributos Java**, no las
   tablas ni columnas SQL: `Producto`, `precioUnitario`, `idProducto`.
-- `flgDiscontinuo` es un `Integer`; por ahora se adopta `0 = vendible` y
+- `flgDiscontinuo` es un `Integer`: `0 = vendible` y
   `1 = discontinuado`.
 - Una orden sin `fechaEntregada` se considera pendiente. Una orden con fecha de
   entrega se considera entregada. No existe todavía una cancelación formal.
