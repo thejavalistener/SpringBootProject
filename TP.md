@@ -58,8 +58,9 @@ Las asociaciones sólo están declaradas hacia el lado `@ManyToOne`; por ejemplo
 
 ### Hallazgos que quedan como mejora, no como bloqueo
 
-1. En los datos de ejemplo, la vigencia `$vig3` tiene fecha de inicio posterior
-   a su fecha de fin. Debe corregirse para que no distorsione pruebas.
+1. Las vigencias de `script.hql` usan `NOW +/- días`, por lo que en cada carga
+   hay promociones vigentes, vencidas y próximas. Requiere una versión de la
+   consola con aritmética temporal habilitada.
 
 ## 3. Alcance funcional: casos de uso
 
@@ -269,4 +270,3 @@ una fila actualizada como el de cero filas.
   finalmente desde la GUI.
 - Presentar como mejora realista el precio histórico y descuento por detalle,
   más el cambio `Double` a `BigDecimal`.
-
