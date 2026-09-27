@@ -69,7 +69,7 @@ venta**, no como orden de compra al proveedor.
 
 | ID | Actor | Caso de uso | Resultado y reglas principales |
 |---|---|---|---|
-| CU-01 | Visitante/cliente | Consultar catálogo | Ve productos vendibles por categoría, proveedor o texto, con precio y stock. Los discontinuados no se ofrecen. |
+| CU-01 | Cliente | Consultar catálogo | Busca productos vendibles por categoría, proveedor o texto, con precio y stock. Los discontinuados no se ofrecen. |
 | CU-02 | Cliente | Identificarse | Se autentica por `username` y contraseña. Para el TP la contraseña actual es texto plano; no es aceptable fuera del aula. |
 | CU-03 | Cliente | Consultar promociones vigentes | Ve sólo promociones cuyo período contiene la fecha consultada y el descuento de cada producto. Si hay varias, se muestra la mayor. |
 | CU-04 | Vendedor | Crear orden de venta | Selecciona cliente, empleado y renglones. Cada cantidad debe ser positiva, el producto vendible y el stock suficiente. Se crea la orden y sus detalles en una única transacción. |

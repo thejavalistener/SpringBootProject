@@ -1,3 +1,5 @@
+
+// reseteo todos los datos
 DELETE FROM DetalleOrden;
 DELETE FROM Orden;
 DELETE FROM Cliente;
@@ -13,6 +15,7 @@ DELETE FROM Categoria;
 DELETE FROM Usuario;
 DELETE FROM TipoCliente;
 
+// inserto categorias y proveedores
 $cat1 = INSERT INTO Categoria (descripcion) VALUES ('Computacion');
 $cat2 = INSERT INTO Categoria (descripcion) VALUES ('Telefonia');
 $cat3 = INSERT INTO Categoria (descripcion) VALUES ('Videouegos');
@@ -27,6 +30,8 @@ INSERT INTO ProveedorCategoria (proveedor, categoria) VALUES ($prov2, $cat1);
 INSERT INTO ProveedorCategoria (proveedor, categoria) VALUES ($prov3, $cat1);
 INSERT INTO ProveedorCategoria (proveedor, categoria) VALUES ($prov3, $cat2);
 INSERT INTO ProveedorCategoria (proveedor, categoria) VALUES ($prov4, $cat3);
+
+// inserto productos
 $prod1 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitario, unidadesStock, unidadesReposicion, flgDiscontinuo) VALUES ('Notebook Vaio SVN1445210', $prov1, $cat1, 1300, 5, 2, 0);
 $prod2 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitario, unidadesStock, unidadesReposicion, flgDiscontinuo) VALUES ('Notebook Vaio SVN1562883', $prov1, $cat1, 980, 2, 3, 0);
 $prod3 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitario, unidadesStock, unidadesReposicion, flgDiscontinuo) VALUES ('Ultrabook Slim Vaio SVUB15551', $prov1, $cat1, 1800, 1, 1, 0);
@@ -45,6 +50,8 @@ $prod15 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitari
 $prod16 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitario, unidadesStock, unidadesReposicion, flgDiscontinuo) VALUES ('Mando Playstation XV3432', $prov4, $cat3, 150, 3, 0, 0);
 $prod17 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitario, unidadesStock, unidadesReposicion, flgDiscontinuo) VALUES ('Xbox One', $prov1, $cat3, 1100, 4, 0, 0);
 $prod18 = INSERT INTO Producto (descripcion, proveedor, categoria, precioUnitario, unidadesStock, unidadesReposicion, flgDiscontinuo) VALUES ('Mando Xbox Bateria VBB133123', $prov1, $cat3, 170, 3, 0, 0);
+
+// promociones y vigencias
 $promo1 = INSERT INTO Promocion (descripcion) VALUES ('Promo Tarjeta Naranja');
 $promo2 = INSERT INTO Promocion (descripcion) VALUES ('Promo Banco Galicia');
 $promo3 = INSERT INTO Promocion (descripcion) VALUES ('Promo Clarin 365');
@@ -56,6 +63,8 @@ $vig5 = INSERT INTO PromocionVigencia (promocion, fechaInicio, fechaFin) VALUES 
 $vig6 = INSERT INTO PromocionVigencia (promocion, fechaInicio, fechaFin) VALUES ($promo3, NOW - 29, NOW - 11);
 $vig7 = INSERT INTO PromocionVigencia (promocion, fechaInicio, fechaFin) VALUES ($promo3, NOW - 7, NOW - 2);
 $vig8 = INSERT INTO PromocionVigencia (promocion, fechaInicio, fechaFin) VALUES ($promo3, NOW + 1, NOW + 7);
+
+// productos en promocion
 INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($prod2, $vig1, 0.2);
 INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($prod5, $vig1, 0.3);
 INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($prod8, $vig1, 0.1);
@@ -80,6 +89,8 @@ INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($
 INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($prod9, $vig8, 0.5);
 INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($prod15, $vig8, 0.35);
 INSERT INTO PromocionProducto (producto, promocionVigencia, descuento) VALUES ($prod18, $vig8, 0.25);
+
+// inserto usuarios, tipos de cliente y clientes
 $usr1 = INSERT INTO Usuario (username, password) VALUES ('mgallardo', '123');
 $usr2 = INSERT INTO Usuario (username, password) VALUES ('rvillar', '123');
 $usr3 = INSERT INTO Usuario (username, password) VALUES ('mmontana', '123');
@@ -96,7 +107,9 @@ $cli4 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($u
 $cli5 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr5, 'Paula Perez', 'Av. Del Libertador 7734', $tipo1);
 $cli6 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr6, 'Electronica Matsushita', 'Av. Rivadavia 1241', $tipo2);
 $cli7 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr7, 'Audio Confort', 'Av. Santa Fe 3411', $tipo2);
-$emp1 = INSERT INTO Empleado (nombre) VALUES ('JosÃ© VelÃ¡zquez');
+
+// empleados
+$emp1 = INSERT INTO Empleado (nombre) VALUES ('Jose Velazquez');
 $emp2 = INSERT INTO Empleado (nombre, jefe) VALUES ('Pedro Galimberti', $emp1);
 $emp3 = INSERT INTO Empleado (nombre, jefe) VALUES ('Carlos Marti­nez', $emp1);
 $emp4 = INSERT INTO Empleado (nombre, jefe) VALUES ('Reynaldo Jauregui', $emp1);
@@ -104,6 +117,8 @@ $emp5 = INSERT INTO Empleado (nombre, jefe) VALUES ('Ramon Sinay', $emp4);
 $emp6 = INSERT INTO Empleado (nombre, jefe) VALUES ('Pedro Alfonso', $emp4);
 $emp7 = INSERT INTO Empleado (nombre, jefe) VALUES ('Ricardo Garcia', $emp3);
 $emp8 = INSERT INTO Empleado (nombre, jefe) VALUES ('Maribel Flores', $emp3);
+
+// algunas ordenes ya creadas
 $ord1 = INSERT INTO Orden (cliente, empleado, fechaGenerada) VALUES ($cli1, $emp1, NOW);
 $ord2 = INSERT INTO Orden (cliente, empleado, fechaGenerada) VALUES ($cli1, $emp2, NOW);
 $ord3 = INSERT INTO Orden (cliente, empleado, fechaGenerada) VALUES ($cli2, $emp3, NOW);
