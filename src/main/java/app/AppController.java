@@ -15,6 +15,12 @@ public class AppController
     @Autowired
     private AppService appService;
 
+    @GetMapping("/producto/{idProd}")
+    public Producto productoObtener(@PathVariable int idProd)
+    {
+        return appService.productoObtener(idProd);
+    }
+
     @GetMapping("/productos")
     public List<Producto> productosObtener()
     {
