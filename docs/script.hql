@@ -103,12 +103,12 @@ $tipo2 = INSERT INTO TipoCliente (descripcion) VALUES ('Revendedor');
 $cli1 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr1, 'Marcelo Gallardo', 'Pje. Los Robles 351', $tipo1);
 $cli2 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr2, 'Ricardo Villar', 'Av. Jose Mari­a Moreno 667', $tipo1);
 $cli3 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr3, 'Maria Montana', 'Ramon Falcon 5123', $tipo1);
-$cli4 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr4, 'Marcelo Roldan', 'Donato Ãlvarez 145', $tipo1);
+$cli4 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr4, 'Marcelo Roldan', 'Donato Alvarez 145', $tipo1);
 $cli5 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr5, 'Paula Perez', 'Av. Del Libertador 7734', $tipo1);
 $cli6 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr6, 'Electronica Matsushita', 'Av. Rivadavia 1241', $tipo2);
 $cli7 = INSERT INTO Cliente (usuario, nombre, direccion, tipoCliente) VALUES ($usr7, 'Audio Confort', 'Av. Santa Fe 3411', $tipo2);
 
-// empleados
+// empleados 
 $emp1 = INSERT INTO Empleado (nombre) VALUES ('Jose Velazquez');
 $emp2 = INSERT INTO Empleado (nombre, jefe) VALUES ('Pedro Galimberti', $emp1);
 $emp3 = INSERT INTO Empleado (nombre, jefe) VALUES ('Carlos Marti­nez', $emp1);
