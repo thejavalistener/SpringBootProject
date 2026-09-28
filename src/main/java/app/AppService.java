@@ -15,6 +15,15 @@ public class AppService
     @Autowired
     private EntityManager em;
 
+    public Producto productoObtener(int idProd)
+    {
+//      return em.find(Producto.class,idProd);
+        String hql = "FROM Producto p WHERE p.idProducto =:id ";
+        Query q = em.createQuery(hql);
+        q.setParameter("id", idProd);
+        return (Producto)q.getSingleResult();
+    }
+
     public List<Producto> productosObtener()
     {
         String hql = "FROM Producto";
