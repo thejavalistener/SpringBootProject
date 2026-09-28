@@ -10,8 +10,15 @@ public class Usuario
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer idUsuario;
+
     private String username;
+
     private String password;
+
+    public String toHqlConsoleString()
+    {
+        return username;
+    }
 
     public Integer getIdUsuario()
     {

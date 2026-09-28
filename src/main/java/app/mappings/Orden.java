@@ -11,14 +11,18 @@ public class Orden
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_orden")
     private Integer idOrden;
+
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+
     @ManyToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
+
     @Column(name = "fecha_generada")
     private LocalDate fechaGenerada;
+
     @Column(name = "fecha_entregada")
     private LocalDate fechaEntregada;
 

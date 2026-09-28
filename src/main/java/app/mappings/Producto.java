@@ -42,6 +42,11 @@ public class Producto
     @Column(name = "flg_discontinuo")
     private Integer flgDiscontinuo;
 
+    public String toHqlConsoleString()
+    {
+        return descripcion;
+    }
+
     public Integer getIdProducto()
     {
         return idProducto;
