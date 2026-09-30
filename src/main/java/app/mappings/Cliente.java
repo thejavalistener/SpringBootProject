@@ -23,7 +23,7 @@ public class Cliente
     @JoinColumn(name = "id_tipo_cliente")
     private TipoCliente tipoCliente;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return nombre;
     }

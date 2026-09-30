@@ -13,7 +13,7 @@ public class TipoCliente
 
     private String descripcion;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return descripcion;
     }

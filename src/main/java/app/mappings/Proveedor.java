@@ -17,7 +17,7 @@ public class Proveedor
 
     private String direccion;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return empresa;
     }

@@ -13,7 +13,7 @@ public class Categoria
 
     private String descripcion;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return descripcion;
     }

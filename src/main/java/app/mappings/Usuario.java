@@ -15,7 +15,7 @@ public class Usuario
 
     private String password;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return username;
     }

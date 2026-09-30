@@ -42,7 +42,7 @@ public class Producto
     @Column(name = "flg_discontinuo")
     private Integer flgDiscontinuo;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return descripcion;
     }

@@ -17,7 +17,7 @@ public class Empleado
     @JoinColumn(name = "id_jefe")
     private Empleado jefe;
 
-    public String toHqlConsoleString()
+    public String toJPQLConsoleString()
     {
         return nombre;
     }
